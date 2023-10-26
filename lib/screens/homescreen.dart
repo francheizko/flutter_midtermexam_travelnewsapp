@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_midtermexam_travelnewsapp/models/shortsdata.dart';
 import 'package:google_fonts/google_fonts.dart';
+import "package:flutter_midtermexam_travelnewsapp/models/articledata.dart";
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,30 +27,41 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     color: const Color(0xFF83B1FF),
                     image: const DecorationImage(
-                        image: AssetImage('assets/profile-icon.jpg'))),
+                        image: AssetImage('assets/logo.jpg'))),
               ),
               const SizedBox(
                 width: 16,
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome Back!',
+                    'GUIDE TO THE',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    'PHILIPPINES',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16, // Adjust the font size
+                      fontWeight: FontWeight.w700,
+                      height: 0.9, // Adjust the lineHeight
                     ),
                   ),
                   const SizedBox(
                     height: 7,
                   ),
                   Text(
-                    'Saturday, 28 October',
+                    'Welcome back, User!',
                     style: GoogleFonts.poppins(
-                        fontSize: 12, color: const Color(0xFF9397A0)),
+                      fontSize: 12,
+                      color: const Color(0xFF9397A0),
+                    ),
                   )
                 ],
-              ),
+              )
             ],
           ),
           const SizedBox(
@@ -98,46 +111,47 @@ class HomeScreen extends StatelessWidget {
           Row(
             children: [
               Text(
-                '#Health',
+                '#Philippines',
                 style: GoogleFonts.poppins(
                     fontSize: 12, color: const Color(0xFF9397A0)),
               ),
               const SizedBox(
-                width: 35,
+                width: 32,
               ),
               Text(
-                '#Music',
+                '#Cebu',
                 style: GoogleFonts.poppins(
                     fontSize: 12, color: const Color(0xFF9397A0)),
               ),
               const SizedBox(
-                width: 35,
+                width: 32,
               ),
               Text(
-                '#Technology',
+                '#Islands',
                 style: GoogleFonts.poppins(
                     fontSize: 12, color: const Color(0xFF9397A0)),
               ),
               const SizedBox(
-                width: 35,
+                width: 32,
               ),
               Text(
-                '#Sports',
+                '#Nature',
                 style: GoogleFonts.poppins(
                     fontSize: 12, color: const Color(0xFF9397A0)),
               ),
             ],
           ),
           const SizedBox(
-            height: 30,
+            height: 32,
           ),
           SizedBox(
             height: 304,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 5,
+              itemCount: articles.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: ((context, index) {
+                ArticleData article = articles[index];
                 return Container(
                   padding: const EdgeInsets.all(12),
                   margin: const EdgeInsets.only(right: 20),
@@ -160,17 +174,16 @@ class HomeScreen extends StatelessWidget {
                         height: 164,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            image: const DecorationImage(
+                            image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(
-                                    'assets/Experience-canyoneering.jpg'))),
+                                image: AssetImage(article.image))),
                       ),
                       const SizedBox(
                         height: 18,
                       ),
                       Flexible(
                           child: Text(
-                        'Experience Canyoneering to Kawasan Falls',
+                        article.title,
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -184,9 +197,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 19,
-                            backgroundImage: AssetImage('assets/Author-1.jpg'),
+                            backgroundImage: AssetImage(article.authorimage),
                           ),
                           const SizedBox(
                             width: 12,
@@ -196,14 +209,14 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Franz Pueblos',
+                                article.author,
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
-                                'Nov 30, 2023',
+                                article.date,
                                 style: GoogleFonts.poppins(
                                     fontSize: 12,
                                     color: const Color(0xFF9397A0)),
@@ -211,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(
-                            width: 55,
+                            width: 35,
                           ),
                           Container(
                             height: 37,
@@ -258,9 +271,10 @@ class HomeScreen extends StatelessWidget {
             height: 88,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 5,
+              itemCount: shorts.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: ((context, index) {
+                ShortsData short = shorts[index];
                 return Container(
                     padding: const EdgeInsets.all(9),
                     margin: const EdgeInsets.only(right: 20),
@@ -286,10 +300,9 @@ class HomeScreen extends StatelessWidget {
                               height: 70,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),
-                                image: const DecorationImage(
+                                image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'assets/Experience-canyoneering.jpg'),
+                                  image: AssetImage(short.image),
                                 ),
                               ),
                             ),
@@ -321,7 +334,7 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Flexible(
                                 child: Text(
-                                  'Whale Shark Watching Tour',
+                                  short.title,
                                   style: GoogleFonts.poppins(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,
@@ -339,7 +352,7 @@ class HomeScreen extends StatelessWidget {
                                       width: 16, height: 16),
                                   const SizedBox(width: 6),
                                   Text(
-                                    '43,120',
+                                    short.views,
                                     style: GoogleFonts.poppins(
                                       fontSize: 12,
                                       color: const Color(0xFF9397A0),
