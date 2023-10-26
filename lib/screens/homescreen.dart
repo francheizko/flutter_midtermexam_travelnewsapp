@@ -8,12 +8,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: ListView(
+            physics: const NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.symmetric(
               horizontal: 30,
             ),
             children: [
           const SizedBox(
-            height: 56,
+            height: 26,
           ),
           Row(
             children: [
@@ -59,16 +60,17 @@ class HomeScreen extends StatelessWidget {
             width: 315,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Colors.white, // White background
+              color: Colors.white,
             ),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
+                    style: GoogleFonts.poppins(fontSize: 12),
                     decoration: InputDecoration(
                       hintText: 'Search for articles...',
                       hintStyle: GoogleFonts.poppins(fontSize: 12),
-                      border: InputBorder.none, // Remove the border
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
@@ -82,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                   child: const Center(
                     child: Icon(
                       Icons.search,
-                      color: Colors.white,
+                      color: Color(0xFFF5F5F5),
                       size: 35,
                     ),
                   ),
@@ -215,7 +217,7 @@ class HomeScreen extends StatelessWidget {
                             height: 37,
                             width: 37,
                             decoration: BoxDecoration(
-                                color: const Color(0xFFEFF5F4),
+                                color: const Color(0xFFF5F5F5),
                                 borderRadius: BorderRadius.circular(12),
                                 image: const DecorationImage(
                                     image:
@@ -266,7 +268,7 @@ class HomeScreen extends StatelessWidget {
                     width: 208,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: const Color(0xFFFFFFFF),
+                        color: Colors.white70,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.blueGrey.withOpacity(0.051),
@@ -312,36 +314,41 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(
                           width: 12,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                'Whale Shark Watching Tour',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                const SizedBox(width: 4),
-                                Image.asset('assets/Views-icon.jpg',
-                                    width: 16, height: 16),
-                                Text(
-                                  '143,000',
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  'Whale Shark Watching Tour',
                                   style: GoogleFonts.poppins(
                                     fontSize: 12,
-                                    color: const Color(0xFF9397A0),
+                                    fontWeight: FontWeight.w600,
                                   ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/Views-icon.jpg',
+                                      width: 16, height: 16),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    '43,120',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 12,
+                                      color: const Color(0xFF9397A0),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ));

@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_midtermexam_travelnewsapp/screens/homescreen.dart";
+import "package:flutter_midtermexam_travelnewsapp/screens/bottom_navbar.dart";
 
 void main() {
   runApp(
@@ -8,20 +9,32 @@ void main() {
 }
 
 class MidtermApp extends StatefulWidget {
-  const MidtermApp({super.key});
+  const MidtermApp({Key? key}) : super(key: key);
 
   @override
   State<MidtermApp> createState() => _MyWidgetState();
 }
 
 class _MyWidgetState extends State<MidtermApp> {
+  int selectedindex = 0;
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedindex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xFFFCFCFC),
-        body: HomeScreen(),
+        backgroundColor: const Color(0xFFFCFCFC),
+        body: const HomeScreen(),
+        bottomNavigationBar: BottomNavBar(
+          selectedindex: selectedindex,
+          onItemTapped: onItemTapped,
+        ),
       ),
     );
   }
