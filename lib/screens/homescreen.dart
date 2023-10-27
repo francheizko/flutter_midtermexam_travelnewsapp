@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_midtermexam_travelnewsapp/models/shortsdata.dart';
+import 'package:flutter_midtermexam_travelnewsapp/screens/kawasan_falls.dart';
 import 'package:google_fonts/google_fonts.dart';
 import "package:flutter_midtermexam_travelnewsapp/models/articledata.dart";
 
@@ -152,93 +153,105 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: ((context, index) {
                 ArticleData article = articles[index];
-                return Container(
-                  padding: const EdgeInsets.all(12),
-                  margin: const EdgeInsets.only(right: 20),
-                  height: 304,
-                  width: 255,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: const Color(0xFFFFFFFF),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.blueGrey.withOpacity(0.051),
-                          offset: const Offset(0.0, 3.0),
-                          blurRadius: 24.0,
-                          spreadRadius: 0.0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 164,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(article.image))),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      Flexible(
-                          child: Text(
-                        article.title,
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                return GestureDetector(
+                  onTap: () {
+                    if (article.title ==
+                        'Experience Canyoneering to Kawasan Falls') {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const KawasanScreen(),
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.left,
-                      )),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 19,
-                            backgroundImage: AssetImage(article.authorimage),
-                          ),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                article.author,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              Text(
-                                article.date,
-                                style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    color: const Color(0xFF9397A0)),
-                              )
-                            ],
-                          ),
-                          const SizedBox(
-                            width: 38,
-                          ),
-                          Container(
-                            height: 37,
-                            width: 37,
-                            decoration: BoxDecoration(
-                                color: const Color(0xFFF5F5F5),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image:
-                                        AssetImage('assets/Share-icon.png'))),
+                      );
+                    }
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.only(right: 20),
+                    height: 304,
+                    width: 255,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: const Color(0xFFFFFFFF),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.blueGrey.withOpacity(0.051),
+                            offset: const Offset(0.0, 3.0),
+                            blurRadius: 24.0,
+                            spreadRadius: 0.0,
                           )
-                        ],
-                      )
-                    ],
+                        ]),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 164,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(article.image))),
+                        ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Flexible(
+                            child: Text(
+                          article.title,
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                        )),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 19,
+                              backgroundImage: AssetImage(article.authorimage),
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  article.author,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  article.date,
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 12,
+                                      color: const Color(0xFF9397A0)),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 38,
+                            ),
+                            Container(
+                              height: 37,
+                              width: 37,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFFF5F5F5),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image:
+                                          AssetImage('assets/Share-icon.png'))),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               }),

@@ -31,7 +31,7 @@ class _MyWidgetState extends State<MidtermApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color(0xFFFCFCFC),
-        body: const KawasanScreen(),
+        body: const HomeScreen(),
         bottomNavigationBar: BottomNavBar(
           selectedindex: selectedindex,
           onItemTapped: onItemTapped,
