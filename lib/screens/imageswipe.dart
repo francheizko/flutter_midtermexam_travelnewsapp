@@ -64,7 +64,7 @@ class _FullScreenSliderState extends State<FullScreenSlider> {
                           horizontal: 8,
                         ),
                         child: Transform.scale(
-                          scale: 0.7, // Adjust the scale as needed
+                          scale: 0.7,
                           child: SvgPicture.asset(
                             _current == entry.key
                                 ? 'assets/carousel_indicator_enabled.svg'

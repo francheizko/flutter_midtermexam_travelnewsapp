@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
+import "package:flutter_midtermexam_travelnewsapp/screens/author_profie.dart";
 import "package:flutter_midtermexam_travelnewsapp/screens/homescreen.dart";
 import "package:flutter_midtermexam_travelnewsapp/screens/bottom_navbar.dart";
-import "package:flutter_midtermexam_travelnewsapp/screens/kawasan_falls.dart";
 
 void main() {
   runApp(

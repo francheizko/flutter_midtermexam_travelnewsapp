@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_midtermexam_travelnewsapp/screens/author_profie.dart';
 import 'package:flutter_midtermexam_travelnewsapp/screens/imageswipe.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_midtermexam_travelnewsapp/screens/bottom_navbar.dart'; // Import your custom BottomNavBar
@@ -92,59 +93,68 @@ class KawasanScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        width: 315,
-                        height: 54,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.white,
-                          border: Border.all(
-                            color: const Color(0xFF9397A0),
-                            width: 0.2,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const AuthorScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 315,
+                          height: 54,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: Colors.transparent,
+                            border: Border.all(
+                              color: const Color(0xFF9397A0),
+                              width: 0.2,
+                            ),
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 12),
-                          child: Row(
-                            children: [
-                              const CircleAvatar(
-                                radius: 15,
-                                backgroundImage:
-                                    AssetImage('assets/Author-1.jpg'),
-                              ),
-                              const SizedBox(
-                                width: 13,
-                              ),
-                              Text(
-                                'Franz Pueblos ',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  color: const Color(0xFF9397A0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: Row(
+                              children: [
+                                const CircleAvatar(
+                                  radius: 15,
+                                  backgroundImage:
+                                      AssetImage('assets/Author-1.jpg'),
                                 ),
-                              ),
-                              Text(
-                                'Nov 30  ',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  color: const Color(0xFF9397A0),
+                                const SizedBox(
+                                  width: 13,
                                 ),
-                              ),
-                              Container(
-                                width: 4,
-                                height: 4,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0xFF9397A0),
+                                Text(
+                                  'Franz Pueblos ',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 13,
+                                    color: const Color(0xFF9397A0),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '  8 min read',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  color: const Color(0xFF9397A0),
+                                Text(
+                                  'Nov 30  ',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 13,
+                                    color: const Color(0xFF9397A0),
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  width: 4,
+                                  height: 4,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(0xFF9397A0),
+                                  ),
+                                ),
+                                Text(
+                                  '  8 min read',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 13,
+                                    color: const Color(0xFF9397A0),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -164,7 +174,7 @@ class KawasanScreen extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: BottomNavBar(
-          selectedindex: 1, // Adjust the selected index accordingly
+          selectedindex: 0, // Adjust the selected index accordingly
           onItemTapped: (index) {
             // Handle navigation to different screens here
           },
